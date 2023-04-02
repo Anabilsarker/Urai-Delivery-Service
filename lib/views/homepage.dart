@@ -18,23 +18,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  List<Widget> appBarButtons() {
-    return <Widget>[];
-  }
-
   List<Widget> appBarActions() {
     return <Widget>[
       Padding(
-        padding: const EdgeInsets.only(
-            left: 20.0, top: 20.0, right: 20.0, bottom: 20.0),
+        padding: const EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0, bottom: 20.0),
         child: OutlinedButton(
           onPressed: _incrementCounter,
-          child: const Text('Click me'),
+          child: const Text(Variables.register),
         ),
       ),
       Padding(
-        padding: const EdgeInsets.only(
-            left: 20.0, top: 20.0, right: 20.0, bottom: 20.0),
+        padding: const EdgeInsets.only(left: 0.0, top: 20.0, right: 20.0, bottom: 20.0),
         child: ElevatedButton(
           onPressed: _incrementCounter,
           child: const Text(Variables.login),
@@ -43,39 +37,50 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
   }
 
-  Padding appBarBanner() {
-    return const Padding(
-        padding: EdgeInsets.only(
-            left: 20.0, top: 20.0, right: 20.0, bottom: 20.0),
-        child: Image(image: AssetImage('assets/images/UraiBanner.jpg')),
-      );
-  }
-
   AppBar appBar() {
     return AppBar(
       toolbarHeight: 80,
       backgroundColor: Colors.white,
-      title: appBarBanner(),
+      title: const Image(image: AssetImage('assets/images/UraiBanner.jpg'), height: 80),
       actions: appBarActions(),
     );
   }
 
   List<Widget> status() {
+    ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), minimumSize: const Size(150.0, 50.0), backgroundColor: Colors.green);
+
     return <Widget>[
-      const Text(
-        'You have pushed the button this many times:',
+      Padding(
+        padding: const EdgeInsets.only(left: 0.0, top: 20.0, right: 0.0, bottom: 0.0),
+        child: ElevatedButton(
+          onPressed: _incrementCounter,
+          style: style,
+          child: const Text(Variables.merchant),
+        ),
       ),
-      Text(
-        '$_counter',
-        style: Theme.of(context).textTheme.headlineMedium,
+      Padding(
+        padding: const EdgeInsets.only(left: 0.0, top: 20.0, right: 0.0, bottom: 0.0),
+        child: ElevatedButton(
+          onPressed: _incrementCounter,
+          style: style,
+          child: const Text(Variables.customer),
+        ),
       ),
+      Padding(
+        padding: const EdgeInsets.only(left: 0.0, top: 20.0, right: 0.0, bottom: 0.0),
+        child: ElevatedButton(
+          onPressed: _incrementCounter,
+          style: style,
+          child: const Text(Variables.rider),
+        ),
+      )
     ];
   }
 
   Center body() {
     return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: status(),
       ),
     );
