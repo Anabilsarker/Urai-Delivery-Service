@@ -5,4 +5,6 @@ class Variables {
   static const String customer = "Customer";
   static const String rider = "Rider";
   static const String merchant = "Merchant";
+  static const String contactUs = "Contact Us";
+  static const String pricing = "Pricing";
 }
