@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:urai_web/styles/button_styles.dart';
 
 import '../strings.dart';
 
@@ -16,10 +17,6 @@ class ResponsiveAppBar extends StatelessWidget {
   }
 
   Widget desktopAppBarView() {
-    ButtonStyle textButtonStyle = TextButton.styleFrom(textStyle: const TextStyle(fontSize: 16));
-    ButtonStyle outlinedButtonStyle = OutlinedButton.styleFrom(textStyle: const TextStyle(fontSize: 16), side: const BorderSide(width: 0.5));
-    ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 16));
-
     return Row(
       children: <Widget>[
         Padding(
@@ -29,7 +26,7 @@ class ResponsiveAppBar extends StatelessWidget {
               width: 100.0,
               child: TextButton(
                 onPressed: _dummy,
-                style: textButtonStyle,
+                style: CustomButtonStyle.textButtonAppBarDesktop,
                 child: const Text(Variables.pricing),
               ),
             )),
@@ -40,7 +37,7 @@ class ResponsiveAppBar extends StatelessWidget {
               width: 100.0,
               child: TextButton(
                 onPressed: _dummy,
-                style: textButtonStyle,
+                style: CustomButtonStyle.textButtonAppBarDesktop,
                 child: const Text(Variables.contactUs),
               ),
             )),
@@ -51,7 +48,7 @@ class ResponsiveAppBar extends StatelessWidget {
               width: 100.0,
               child: OutlinedButton(
                 onPressed: _dummy,
-                style: outlinedButtonStyle,
+                style: CustomButtonStyle.outlinedButtonAppBarDesktop,
                 child: const Text(Variables.register),
               ),
             )),
@@ -62,7 +59,7 @@ class ResponsiveAppBar extends StatelessWidget {
               width: 100.0,
               child: ElevatedButton(
                 onPressed: _dummy,
-                style: elevatedButtonStyle,
+                style: CustomButtonStyle.elevatedButtonAppBarDesktop,
                 child: const Text(Variables.login),
               ),
             )),
@@ -71,10 +68,42 @@ class ResponsiveAppBar extends StatelessWidget {
   }
 
   Widget mobileAppBarView() {
-    return PopupMenuButton(
-      icon: const Icon(Icons.add_task, color: Colors.blue,),
-      itemBuilder: (context) => [
-        const PopupMenuItem(child: Text("Broogh")),
+    return Row(
+      children: <Widget>[
+        Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: SizedBox(
+              height: 30.0,
+              width: 80.0,
+              child: OutlinedButton(
+                onPressed: _dummy,
+                style: CustomButtonStyle.outlinedButtonAppBarMobile,
+                child: const Text(Variables.login),
+              ),
+            )),
+        PopupMenuButton(
+          icon: const Icon(
+            Icons.dehaze_rounded,
+            color: Colors.blue,
+          ),
+          itemBuilder: (context) => [
+            PopupMenuItem(
+                child: SizedBox(
+                    child: TextButton(
+                        onPressed: _dummy,
+                        child: const Text(Variables.register)))),
+            PopupMenuItem(
+                child: SizedBox(
+                    child: TextButton(
+                        onPressed: _dummy,
+                        child: const Text(Variables.pricing)))),
+            PopupMenuItem(
+                child: SizedBox(
+                    child: TextButton(
+                        onPressed: _dummy,
+                        child: const Text(Variables.contactUs)))),
+          ],
+        )
       ],
     );
   }
