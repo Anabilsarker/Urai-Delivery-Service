@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:urai_web/styles/button_styles.dart';
+import 'package:urai_web/styles/custom_button.dart';
 import 'package:urai_web/styles/text_styles.dart';
 import '../strings.dart';
 
@@ -38,7 +38,7 @@ class ResponsiveBody extends StatelessWidget {
                       width: 100.0,
                       child: ElevatedButton(
                         onPressed: _dummy,
-                        style: CustomButtonStyle.elevatedButtonBody,
+                        style: CustomButton.elevatedButtonBody,
                         child: const Text(Variables.login),
                       ),
                     )),
