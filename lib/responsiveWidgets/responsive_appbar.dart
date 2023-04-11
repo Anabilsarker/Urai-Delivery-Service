@@ -87,21 +87,9 @@ class ResponsiveAppBar extends StatelessWidget {
             color: Colors.blue,
           ),
           itemBuilder: (context) => [
-            PopupMenuItem(
-                child: SizedBox(
-                    child: TextButton(
-                        onPressed: _dummy,
-                        child: const Text(Variables.register)))),
-            PopupMenuItem(
-                child: SizedBox(
-                    child: TextButton(
-                        onPressed: _dummy,
-                        child: const Text(Variables.pricing)))),
-            PopupMenuItem(
-                child: SizedBox(
-                    child: TextButton(
-                        onPressed: _dummy,
-                        child: const Text(Variables.contactUs)))),
+            PopupMenuItem(child: SizedBox(child: TextButton(onPressed: _dummy, child: const Text(Variables.register)))),
+            PopupMenuItem(child: SizedBox(child: TextButton(onPressed: _dummy, child: const Text(Variables.pricing)))),
+            PopupMenuItem(child: SizedBox(child: TextButton(onPressed: _dummy, child: const Text(Variables.contactUs)))),
           ],
         )
       ],

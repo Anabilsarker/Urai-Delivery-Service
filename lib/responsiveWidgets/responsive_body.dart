@@ -4,8 +4,7 @@ import 'package:urai_web/styles/text_styles.dart';
 import '../strings.dart';
 
 class ResponsiveBody extends StatelessWidget {
-  const ResponsiveBody(
-      {super.key, required this.screenWidth, required this.screenHeight});
+  const ResponsiveBody({super.key, required this.screenWidth, required this.screenHeight});
   final double screenWidth;
   final double screenHeight;
 
@@ -31,8 +30,7 @@ class ResponsiveBody extends StatelessWidget {
               children: <Widget>[
                 const Padding(
                     padding: EdgeInsets.only(bottom: 20.0, right: 20.0),
-                    child: Text("Our Motto\nWith 2nd Line",
-                        style: CustomTextStyle.mottoTextBody)),
+                    child: Text("Our Motto\nWith 2nd Line", style: CustomTextStyle.mottoTextBody)),
                 Padding(
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                     child: SizedBox(
@@ -51,22 +49,29 @@ class ResponsiveBody extends StatelessWidget {
   }
 
   Widget pricing() {
-    List<DropdownMenuItem> drop = <DropdownMenuItem>[
-      const DropdownMenuItem<dynamic>(value: "Heyy", child: Text("data"))
-    ];
-    return Container(
+    List<DropdownMenuItem> drop = <DropdownMenuItem>[const DropdownMenuItem<dynamic>(value: "Heyy", child: Text("ghiuh"))];
+    return SizedBox(
+      height: screenWidth * 0.3,
+      width: screenWidth - 100,
       child: Table(
         children: <TableRow>[
-          const TableRow(children: <Widget>[Text("From"), Text("To")]),
+          const TableRow(children: <Widget>[
+            Padding(padding: EdgeInsets.only(left: 20.0, right: 20.0), child: Text("From")),
+            Padding(padding: EdgeInsets.only(left: 20.0, right: 20.0), child: Text("To"))
+          ]),
           TableRow(children: <Widget>[
-            DropdownButton(
-              items: drop,
-              onChanged: _dummy2,
-            ),
-            DropdownButton(
-              items: drop,
-              onChanged: _dummy2,
-            )
+            Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                child: DropdownButton(
+                  items: drop,
+                  onChanged: _dummy2,
+                )),
+            Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                child: DropdownButton(
+                  items: drop,
+                  onChanged: _dummy2,
+                )),
           ]),
         ],
       ),
