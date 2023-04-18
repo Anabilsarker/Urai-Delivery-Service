@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:urai_web/styles/custom_button.dart';
+import 'package:urai_web/styles/responsive.dart';
 import 'package:urai_web/styles/text_styles.dart';
 import '../strings.dart';
 
@@ -10,7 +11,7 @@ class ResponsiveBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (screenWidth > 680.0) {
+    if (screenWidth > Responsive.mobileView) {
       return desktopBodyView();
     } else {
       return mobileBodyView();
@@ -33,15 +34,7 @@ class ResponsiveBody extends StatelessWidget {
                     child: Text("Our Motto\nWith 2nd Line", style: CustomTextStyle.mottoTextBody)),
                 Padding(
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                    child: SizedBox(
-                      height: 35.0,
-                      width: 100.0,
-                      child: ElevatedButton(
-                        onPressed: _dummy,
-                        style: CustomButton.elevatedButtonBody,
-                        child: const Text(Variables.login),
-                      ),
-                    )),
+                    child: CustomButton.elevatedButton(Variables.login, _dummy, foreground: Colors.blue, background: Colors.white)),
               ],
             )
           ],

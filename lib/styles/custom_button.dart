@@ -1,13 +1,13 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:urai_web/main.dart';
 
 class CustomButton {
-  // AppBar Desktop
-  static SizedBox elevatedButton(String content, Void Function() pressedEvent,
-      {double height = 35.0, double width = 100.0, double fontSize = 16}) {
+  static SizedBox elevatedButton(String content, void Function() pressedEvent,
+      {double height = 35.0, double width = 100.0, double fontSize = 16, dynamic foreground, dynamic background}) {
+    background ??= theme.colorScheme.primary;
+    foreground ??= theme.colorScheme.onBackground;
     ButtonStyle elevatedButtonStyle =
-        ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: fontSize));
+        ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: fontSize), foregroundColor: foreground, backgroundColor: background);
 
     return SizedBox(
       height: height,
@@ -25,10 +25,17 @@ class CustomButton {
       double width = 100.0,
       double fontSize = 16,
       double borderWidth = 0.5,
-      Color color = Colors.blue}) {
+      dynamic borderColor,
+      dynamic foreground,
+      dynamic background}) {
+    borderColor ??= theme.colorScheme.shadow;
+    background ??= theme.colorScheme.onBackground;
+    foreground ??= theme.colorScheme.primary;
     ButtonStyle outlinedButtonStyle = OutlinedButton.styleFrom(
         textStyle: TextStyle(fontSize: fontSize),
-        side: BorderSide(width: borderWidth, color: color));
+        side: BorderSide(width: borderWidth, color: borderColor),
+        foregroundColor: foreground,
+        backgroundColor: background);
 
     return SizedBox(
       height: height,
@@ -41,15 +48,10 @@ class CustomButton {
     );
   }
 
-  static SizedBox textButton(
-    String content,
-    Void Function() pressedEvent, {
-    double height = 35.0,
-    double width = 100.0,
-    double fontSize = 16,
-  }) {
+  static SizedBox textButton(String content, void Function() pressedEvent,
+      {double height = 35.0, double width = 100.0, double fontSize = 16, dynamic foreground, dynamic background}) {
     ButtonStyle textButtonStyle =
-        OutlinedButton.styleFrom(textStyle: TextStyle(fontSize: fontSize));
+        OutlinedButton.styleFrom(textStyle: TextStyle(fontSize: fontSize), foregroundColor: foreground, backgroundColor: background);
 
     return SizedBox(
       height: height,
@@ -61,19 +63,4 @@ class CustomButton {
       ),
     );
   }
-
-  // AppBar Desktop
-
-  // AppBar Mobile
-  static ButtonStyle outlinedButtonAppBarMobile = OutlinedButton.styleFrom(
-      textStyle: const TextStyle(fontSize: 14),
-      side: const BorderSide(width: 0.5, color: Colors.blue));
-  // AppBar Mobile
-
-  // Body
-  static ButtonStyle elevatedButtonBody = ElevatedButton.styleFrom(
-      textStyle: const TextStyle(fontSize: 16),
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.blue);
-  // Body
 }
