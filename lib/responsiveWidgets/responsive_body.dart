@@ -34,7 +34,8 @@ class ResponsiveBody extends StatelessWidget {
                     child: Text("Our Motto\nWith 2nd Line", style: CustomTextStyle.mottoTextBody)),
                 Padding(
                     padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                    child: CustomButton.elevatedButton(content: Variables.login, onPressed: _dummy, foreground: Colors.blue, background: Colors.white)),
+                    child:
+                        CustomButton.elevatedButton(content: Variables.login, onPressed: _dummy, foreground: Colors.blue, background: Colors.white)),
               ],
             )
           ],
