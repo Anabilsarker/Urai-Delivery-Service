@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:urai_web/main.dart';
 
 class CustomButton {
-  static SizedBox elevatedButton(String content, void Function() pressedEvent,
-      {double height = 35.0, double width = 100.0, double fontSize = 16, dynamic foreground, dynamic background}) {
+  static SizedBox elevatedButton(
+      {required String content,
+      required void Function() onPressed,
+      double height = 35.0,
+      double width = 100.0,
+      double fontSize = 16,
+      dynamic foreground,
+      dynamic background}) {
     background ??= theme.colorScheme.primary;
     foreground ??= theme.colorScheme.onBackground;
     ButtonStyle elevatedButtonStyle =
@@ -13,15 +19,17 @@ class CustomButton {
       height: height,
       width: width,
       child: ElevatedButton(
-        onPressed: pressedEvent,
+        onPressed: onPressed,
         style: elevatedButtonStyle,
         child: Text(content),
       ),
     );
   }
 
-  static SizedBox outlinedButton(String content, void Function() pressedEvent,
-      {double height = 35.0,
+  static SizedBox outlinedButton(
+      {required String content,
+      required void Function() onPressed,
+      double height = 35.0,
       double width = 100.0,
       double fontSize = 16,
       double borderWidth = 0.5,
@@ -41,15 +49,21 @@ class CustomButton {
       height: height,
       width: width,
       child: OutlinedButton(
-        onPressed: pressedEvent,
+        onPressed: onPressed,
         style: outlinedButtonStyle,
         child: Text(content),
       ),
     );
   }
 
-  static SizedBox textButton(String content, void Function() pressedEvent,
-      {double height = 35.0, double width = 100.0, double fontSize = 16, dynamic foreground, dynamic background}) {
+  static SizedBox textButton(
+      {required String content,
+      required void Function() onPressed,
+      double height = 35.0,
+      double width = 100.0,
+      double fontSize = 16,
+      dynamic foreground,
+      dynamic background}) {
     ButtonStyle textButtonStyle =
         OutlinedButton.styleFrom(textStyle: TextStyle(fontSize: fontSize), foregroundColor: foreground, backgroundColor: background);
 
@@ -57,10 +71,24 @@ class CustomButton {
       height: height,
       width: width,
       child: TextButton(
-        onPressed: pressedEvent,
+        onPressed: onPressed,
         style: textButtonStyle,
         child: Text(content),
       ),
+    );
+  }
+
+  static SizedBox dropdownButton({
+    required List<DropdownMenuItem<dynamic>> items,
+    required void Function(dynamic) onChanged,
+    double height = 35.0,
+    double width = 100.0,
+    double fontSize = 16,
+  }) {
+    return SizedBox(
+      height: height,
+      width: width,
+      child: DropdownButton(items: items, onChanged: onChanged),
     );
   }
 }

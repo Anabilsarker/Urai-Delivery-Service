@@ -20,10 +20,11 @@ class ResponsiveAppBar extends StatelessWidget {
   Widget desktopAppBarView() {
     return Row(
       children: <Widget>[
-        Padding(padding: const EdgeInsets.only(), child: CustomButton.textButton(Variables.pricing, _dummy)),
-        Padding(padding: const EdgeInsets.only(), child: CustomButton.textButton(Variables.contactUs, _dummy)),
-        Padding(padding: const EdgeInsets.only(left: 20.0), child: CustomButton.outlinedButton(Variables.register, _dummy)),
-        Padding(padding: const EdgeInsets.only(left: 20.0, right: 20.0), child: CustomButton.elevatedButton(Variables.login, _dummy)),
+        Padding(padding: const EdgeInsets.only(), child: CustomButton.textButton(content: Variables.pricing, onPressed: _dummy)),
+        Padding(padding: const EdgeInsets.only(), child: CustomButton.textButton(content: Variables.contactUs, onPressed: _dummy)),
+        Padding(padding: const EdgeInsets.only(left: 20.0), child: CustomButton.outlinedButton(content: Variables.register, onPressed: _dummy)),
+        Padding(
+            padding: const EdgeInsets.only(left: 20.0, right: 20.0), child: CustomButton.elevatedButton(content: Variables.login, onPressed: _dummy)),
       ],
     );
   }
@@ -33,7 +34,7 @@ class ResponsiveAppBar extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(right: 20.0),
-          child: CustomButton.outlinedButton(Variables.login, _dummy, height: 30, width: 80, fontSize: 14),
+          child: CustomButton.outlinedButton(content: Variables.login, onPressed: _dummy, height: 30, width: 80, fontSize: 14),
         ),
         PopupMenuButton(
           icon: const Icon(
@@ -41,9 +42,9 @@ class ResponsiveAppBar extends StatelessWidget {
             color: Colors.blue,
           ),
           itemBuilder: (context) => [
-            PopupMenuItem(child: CustomButton.textButton(Variables.register, _dummy)),
-            PopupMenuItem(child: CustomButton.textButton(Variables.pricing, _dummy)),
-            PopupMenuItem(child: CustomButton.textButton(Variables.contactUs, _dummy)),
+            PopupMenuItem(child: CustomButton.textButton(content: Variables.register, onPressed: _dummy)),
+            PopupMenuItem(child: CustomButton.textButton(content: Variables.pricing, onPressed: _dummy)),
+            PopupMenuItem(child: CustomButton.textButton(content: Variables.contactUs, onPressed: _dummy)),
           ],
         )
       ],
