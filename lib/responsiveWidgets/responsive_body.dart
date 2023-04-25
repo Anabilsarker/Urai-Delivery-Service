@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:urai_web/styles/custom_button.dart';
 import 'package:urai_web/styles/responsive.dart';
-import 'package:urai_web/styles/text_styles.dart';
+import 'package:urai_web/styles/custom_text.dart';
 import '../strings.dart';
 
 class ResponsiveBody extends StatelessWidget {
-  const ResponsiveBody({super.key, required this.screenWidth, required this.screenHeight});
+  const ResponsiveBody(
+      {super.key, required this.screenWidth, required this.screenHeight});
   final double screenWidth;
   final double screenHeight;
 
@@ -20,30 +21,44 @@ class ResponsiveBody extends StatelessWidget {
 
   Widget mobileBackground() {
     return Container(
-        height: screenWidth * 0.50,
-        width: screenWidth,
-        decoration: const BoxDecoration(color: Colors.blue),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Padding(
-                    padding: EdgeInsets.only(bottom: 20.0, right: 20.0),
-                    child: Text("Our Motto\nWith 2nd Line", style: CustomTextStyle.mottoTextBody)),
-                Padding(
-                    padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                    child:
-                        CustomButton.elevatedButton(content: Variables.login, onPressed: _dummy, foreground: Colors.blue, background: Colors.white)),
-              ],
-            )
-          ],
-        ));
+      height: screenWidth * 0.50,
+      width: screenWidth,
+      decoration: const BoxDecoration(color: Colors.blue),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20.0, right: 20.0),
+                child: CustomText.text(
+                  content: "Our Motto\nWith 2nd Line",
+                  fontSize: 24,
+                  fontColor: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                child: CustomButton.elevatedButton(
+                  content: Variables.login,
+                  onPressed: _dummy,
+                  foreground: Colors.blue,
+                  background: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   Widget pricing() {
-    List<DropdownMenuItem> drop = <DropdownMenuItem>[const DropdownMenuItem<dynamic>(value: "Heyy", child: Text("ghiuh"))];
+    List<DropdownMenuItem> drop = <DropdownMenuItem>[
+      const DropdownMenuItem<dynamic>(value: "Heyy", child: Text("ghiuh"))
+    ];
     return SizedBox(
       height: screenWidth * 0.3,
       width: screenWidth - 100,

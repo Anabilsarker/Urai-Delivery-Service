@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:urai_web/main.dart';
 
 class CustomButton {
-  static SizedBox elevatedButton(
-      {required String content,
-      required void Function() onPressed,
-      double height = 35.0,
-      double width = 100.0,
-      double fontSize = 16,
-      dynamic foreground,
-      dynamic background}) {
+  static SizedBox elevatedButton({
+    required String content,
+    required void Function() onPressed,
+    double height = 35.0,
+    double width = 100.0,
+    double fontSize = 16,
+    dynamic foreground,
+    dynamic background,
+  }) {
     background ??= theme.colorScheme.primary;
     foreground ??= theme.colorScheme.onBackground;
-    ButtonStyle elevatedButtonStyle =
-        ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: fontSize), foregroundColor: foreground, backgroundColor: background);
+    ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
+        textStyle: TextStyle(fontSize: fontSize),
+        foregroundColor: foreground,
+        backgroundColor: background);
 
     return SizedBox(
       height: height,
@@ -26,16 +29,17 @@ class CustomButton {
     );
   }
 
-  static SizedBox outlinedButton(
-      {required String content,
-      required void Function() onPressed,
-      double height = 35.0,
-      double width = 100.0,
-      double fontSize = 16,
-      double borderWidth = 0.5,
-      dynamic borderColor,
-      dynamic foreground,
-      dynamic background}) {
+  static SizedBox outlinedButton({
+    required String content,
+    required void Function() onPressed,
+    double height = 35.0,
+    double width = 100.0,
+    double fontSize = 16,
+    double borderWidth = 0.5,
+    dynamic borderColor,
+    dynamic foreground,
+    dynamic background,
+  }) {
     borderColor ??= theme.colorScheme.shadow;
     background ??= theme.colorScheme.onBackground;
     foreground ??= theme.colorScheme.primary;
@@ -56,16 +60,19 @@ class CustomButton {
     );
   }
 
-  static SizedBox textButton(
-      {required String content,
-      required void Function() onPressed,
-      double height = 35.0,
-      double width = 100.0,
-      double fontSize = 16,
-      dynamic foreground,
-      dynamic background}) {
-    ButtonStyle textButtonStyle =
-        OutlinedButton.styleFrom(textStyle: TextStyle(fontSize: fontSize), foregroundColor: foreground, backgroundColor: background);
+  static SizedBox textButton({
+    required String content,
+    required void Function() onPressed,
+    double height = 35.0,
+    double width = 100.0,
+    double fontSize = 16,
+    dynamic foreground,
+    dynamic background,
+  }) {
+    ButtonStyle textButtonStyle = OutlinedButton.styleFrom(
+        textStyle: TextStyle(fontSize: fontSize),
+        foregroundColor: foreground,
+        backgroundColor: background);
 
     return SizedBox(
       height: height,
