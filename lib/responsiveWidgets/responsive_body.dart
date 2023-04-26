@@ -5,8 +5,7 @@ import 'package:urai_web/styles/custom_text.dart';
 import '../strings.dart';
 
 class ResponsiveBody extends StatelessWidget {
-  const ResponsiveBody(
-      {super.key, required this.screenWidth, required this.screenHeight});
+  const ResponsiveBody({super.key, required this.screenWidth, required this.screenHeight});
   final double screenWidth;
   final double screenHeight;
 
@@ -56,20 +55,39 @@ class ResponsiveBody extends StatelessWidget {
   }
 
   Widget pricing() {
-    List<DropdownMenuItem> drop = <DropdownMenuItem>[
-      const DropdownMenuItem<dynamic>(value: "Heyy", child: Text("ghiuh"))
-    ];
-    return SizedBox(
-      height: screenWidth * 0.3,
-      width: screenWidth - 100,
-      child: Table(
-        children: <TableRow>[
-          const TableRow(children: <Widget>[Text("From"), Text("To")]),
-          TableRow(children: <Widget>[
-            CustomButton.dropdownButton(items: drop, onChanged: _dummy2),
-            CustomButton.dropdownButton(items: drop, onChanged: _dummy2),
-          ]),
-        ],
+    List<DropdownMenuItem> drop = <DropdownMenuItem>[const DropdownMenuItem<dynamic>(value: "Heyy", child: Text("ghiuh"))];
+    return Center(
+      child: Card(
+        elevation: 10,
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const Text("From", textAlign: TextAlign.left),
+                    CustomButton.dropdownButton(items: drop, onChanged: _dummy2, width: 190),
+                    const Text("Category", textAlign: TextAlign.left),
+                    CustomButton.dropdownButton(items: drop, onChanged: _dummy2, width: 190),
+                  ],
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const Text("To"),
+                  CustomButton.dropdownButton(items: drop, onChanged: _dummy2, width: 190),
+                  const Text("Service"),
+                  CustomButton.dropdownButton(items: drop, onChanged: _dummy2, width: 190),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -14,9 +14,10 @@ class CustomButton {
     background ??= theme.colorScheme.primary;
     foreground ??= theme.colorScheme.onBackground;
     ButtonStyle elevatedButtonStyle = ElevatedButton.styleFrom(
-        textStyle: TextStyle(fontSize: fontSize),
-        foregroundColor: foreground,
-        backgroundColor: background);
+      textStyle: TextStyle(fontSize: fontSize),
+      foregroundColor: foreground,
+      backgroundColor: background,
+    );
 
     return SizedBox(
       height: height,
@@ -44,10 +45,11 @@ class CustomButton {
     background ??= theme.colorScheme.onBackground;
     foreground ??= theme.colorScheme.primary;
     ButtonStyle outlinedButtonStyle = OutlinedButton.styleFrom(
-        textStyle: TextStyle(fontSize: fontSize),
-        side: BorderSide(width: borderWidth, color: borderColor),
-        foregroundColor: foreground,
-        backgroundColor: background);
+      textStyle: TextStyle(fontSize: fontSize),
+      side: BorderSide(width: borderWidth, color: borderColor),
+      foregroundColor: foreground,
+      backgroundColor: background,
+    );
 
     return SizedBox(
       height: height,
@@ -70,9 +72,10 @@ class CustomButton {
     dynamic background,
   }) {
     ButtonStyle textButtonStyle = OutlinedButton.styleFrom(
-        textStyle: TextStyle(fontSize: fontSize),
-        foregroundColor: foreground,
-        backgroundColor: background);
+      textStyle: TextStyle(fontSize: fontSize),
+      foregroundColor: foreground,
+      backgroundColor: background,
+    );
 
     return SizedBox(
       height: height,
