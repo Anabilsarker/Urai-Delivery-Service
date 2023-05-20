@@ -55,7 +55,9 @@ class ResponsiveBody extends StatelessWidget {
   }
 
   Widget pricing() {
-    List<DropdownMenuItem> drop = <DropdownMenuItem>[const DropdownMenuItem<dynamic>(value: "Heyy", child: Text("ghiuh"))];
+    List<DropdownMenuItem<dynamic>> drop = [];
+    drop.add(DropdownMenuItem(value: "He", child: Text("ghiuh")));
+    drop.add(DropdownMenuItem(value: "He", child: Text("werwer")));
     return Center(
       child: Card(
         elevation: 10,

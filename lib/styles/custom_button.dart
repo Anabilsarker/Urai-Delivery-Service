@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:urai_web/main.dart';
 
-class CustomButton {
+class StatefulButton extends StatefulWidget {
+  const StatefulButton({super.key});
+
+  @override
+  State<StatefulWidget> createState() => CustomButton();
+}
+
+class CustomButton extends State<StatefulButton>{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+
   static SizedBox elevatedButton({
     required String content,
     required void Function() onPressed,
