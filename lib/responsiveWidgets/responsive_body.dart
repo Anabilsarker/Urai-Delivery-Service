@@ -4,10 +4,27 @@ import 'package:urai_web/styles/responsive.dart';
 import 'package:urai_web/styles/custom_text.dart';
 import '../strings.dart';
 
-class ResponsiveBody extends StatelessWidget {
-  const ResponsiveBody({super.key, required this.screenWidth, required this.screenHeight});
+class ResponsiveBodyStateful extends StatefulWidget {
+  const ResponsiveBodyStateful({super.key, required this.screenWidth, required this.screenHeight});
   final double screenWidth;
   final double screenHeight;
+
+  @override
+  // ignore: no_logic_in_create_state
+  State<StatefulWidget> createState() => ResponsiveBody(screenHeight, screenWidth);
+
+}
+
+class ResponsiveBody extends State<ResponsiveBodyStateful> {
+  double screenWidth = 0.0;
+  double screenHeight = 0.0;
+  ResponsiveBody(double screenHeight, double screenWidth) {
+    // ignore: prefer_initializing_formals
+    this.screenHeight = screenHeight;
+    // ignore: prefer_initializing_formals
+    this.screenWidth = screenWidth;
+    //build(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +37,8 @@ class ResponsiveBody extends StatelessWidget {
 
   Widget mobileBackground() {
     return Container(
-      height: screenWidth * 0.50,
-      width: screenWidth,
+      height: this.screenWidth * 0.50,
+      width: this.screenWidth,
       decoration: const BoxDecoration(color: Colors.blue),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -55,9 +72,9 @@ class ResponsiveBody extends StatelessWidget {
   }
 
   Widget pricing() {
-    List<DropdownMenuItem<dynamic>> drop = [];
-    drop.add(DropdownMenuItem(value: "He", child: Text("ghiuh")));
-    drop.add(DropdownMenuItem(value: "He", child: Text("werwer")));
+    List<String> drop = [];
+    drop.add("ghiuh");
+    drop.add("werwer");
     return Center(
       child: Card(
         elevation: 10,
@@ -72,7 +89,7 @@ class ResponsiveBody extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     const Text("From", textAlign: TextAlign.left),
-                    CustomButton.dropdownButton(items: drop, onChanged: _dummy2, width: 190),
+                    CustomButton.dropdownButton(items: drop, onChanged: _dummy2, width: 190, hint: const Text("data")),
                     const Text("Category", textAlign: TextAlign.left),
                     CustomButton.dropdownButton(items: drop, onChanged: _dummy2, width: 190),
                   ],
@@ -106,6 +123,6 @@ class ResponsiveBody extends StatelessWidget {
     );
   }
 
-  void _dummy2(dynamic bha) {}
+  void _dummy2(dynamic bha) { }
   void _dummy() {}
 }

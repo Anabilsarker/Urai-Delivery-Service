@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: appBar(),
-      body: ResponsiveBody(screenWidth: screenWidth, screenHeight: screenHeight),
+      body: ResponsiveBodyStateful(screenWidth: screenWidth, screenHeight: screenHeight),
     );
   }
 }

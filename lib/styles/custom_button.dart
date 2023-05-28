@@ -1,26 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:urai_web/main.dart';
 
-class StatefulButton extends StatefulWidget {
-  const StatefulButton({super.key});
+// class StatefulButton extends StatefulWidget {
+//   const StatefulButton({super.key});
 
-  @override
-  State<StatefulWidget> createState() => CustomButton();
-}
+//   @override
+//   State<StatefulWidget> createState() => CustomButton();
+// }extends State<StatefulButton> 
 
-class CustomButton extends State<StatefulButton>{
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
-  }
+class CustomButton {
+  static List<dynamic>? _items;
+  static dynamic dropDownValue;
+  static dynamic _value;
+  static const double height = 35.0;
+  static const double width = 100.0;
+  static const double fontSize = 16;
+  static const double borderWidth = 0.5;
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return dropdownButton;
+  // }
 
   static SizedBox elevatedButton({
     required String content,
     required void Function() onPressed,
-    double height = 35.0,
-    double width = 100.0,
-    double fontSize = 16,
+    double height = height,
+    double width = width,
+    double fontSize = fontSize,
     dynamic foreground,
     dynamic background,
   }) {
@@ -46,10 +53,10 @@ class CustomButton extends State<StatefulButton>{
   static SizedBox outlinedButton({
     required String content,
     required void Function() onPressed,
-    double height = 35.0,
-    double width = 100.0,
-    double fontSize = 16,
-    double borderWidth = 0.5,
+    double height = height,
+    double width = width,
+    double fontSize = fontSize,
+    double borderWidth = borderWidth,
     dynamic borderColor,
     dynamic foreground,
     dynamic background,
@@ -78,9 +85,9 @@ class CustomButton extends State<StatefulButton>{
   static SizedBox textButton({
     required String content,
     required void Function() onPressed,
-    double height = 35.0,
-    double width = 100.0,
-    double fontSize = 16,
+    double height = height,
+    double width = width,
+    double fontSize = fontSize,
     dynamic foreground,
     dynamic background,
   }) {
@@ -102,16 +109,37 @@ class CustomButton extends State<StatefulButton>{
   }
 
   static SizedBox dropdownButton({
-    required List<DropdownMenuItem<dynamic>> items,
+    required List<dynamic> items,
     required void Function(dynamic) onChanged,
-    double height = 35.0,
-    double width = 100.0,
-    double fontSize = 16,
+    Widget hint = const Text("Place Holder Hint Text"),
+    double height = height,
+    double width = width,
+    double fontSize = fontSize,
   }) {
+    _items = items;
     return SizedBox(
       height: height,
       width: width,
-      child: DropdownButton(items: items, onChanged: onChanged),
+      child: DropdownButton(
+        value: dropDownValue,
+        items: getMenuItems(_items!),
+        hint: hint,
+        onChanged: (dynamic) => _onChanged(_value, onChanged),
+      ),
     );
+  }
+
+  static void _onChanged(dynamic value, dynamic onChanged) {
+    dropDownValue = value!;
+    onChanged;
+  }
+
+  static List<DropdownMenuItem<dynamic>> getMenuItems(List<dynamic> items) {
+    return items.map<DropdownMenuItem<dynamic>>((dynamic value) {
+      return DropdownMenuItem<dynamic>(
+        value: value,
+        child: Text(value),
+      );
+    }).toList();
   }
 }
